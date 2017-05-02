@@ -113,6 +113,16 @@ function setListeners(){
       var laser = new Laser();
       e.preventDefault();
     }
+
+    if(e.which == 16){ // l-shift
+      if($('#start_asteroids').prop('disabled') == false){
+        startAsteroids();
+      }
+    }
+
+    if(e.which == 73){ // i
+      speakDirections();
+    }
   })
 
   $(document).keyup(function(e){
@@ -135,17 +145,7 @@ function setListeners(){
   });
 
   $("#start_asteroids").on("click", function(e){
-    $('#start_asteroids').prop('disabled', true);
-    $('#start_asteroids').hide();
-    $('#reset').show();
-    $('#diff_dropdown').prop('disabled', true);
-    $('#toggle_options').prop('disabled', true);
-    game.play();
-    $(this).blur();
-
-    $('html, body').animate({
-        scrollTop: $("#game_controls").offset().top
-    }, 500);
+    startAsteroids();
   });
 
   $('#reset').on('click', function(){
@@ -173,23 +173,7 @@ function setListeners(){
   });
 
   $('#directions').on('click', function(){
-    var intro = "You are the captain of the THSS, navigating an asteroid belt";
-    var job = "Your task is to defend your ship from incoming asteroids";
-    var ctrl1 = "When you hear an asteroid to your right, press the right arrow to rotate in that direction";
-    var ctrl2 = "Rotate using the left arrow when you hear an asteroid to your left";
-    var ctrl3 = "Press the space bar to fire the ship's laser when you line up the asteroid straight ahead";
-    var ctrl4 = "After aiming directly at an asteroid, you will lock on and hear a tone, but this is not required to hit the target";
-    var hit = "Hitting an asteroid will cause it to explode, boom";
-    var end = ", Good luck captain";
-
-    say(intro);
-    say(job);
-    say(ctrl1);
-    say(ctrl2);
-    say(ctrl3);
-    say(ctrl4);
-    say(hit);
-    say(end);
+    speakDirections();
   });
 }
 
@@ -317,6 +301,40 @@ function SourceMap(){
       this.sources[i].draw();
     }
   }
+}
+
+function startAsteroids(){
+  $('#start_asteroids').prop('disabled', true);
+  $('#start_asteroids').hide();
+  $('#reset').show();
+  $('#diff_dropdown').prop('disabled', true);
+  $('#toggle_options').prop('disabled', true);
+  game.play();
+  $(this).blur();
+
+  $('html, body').animate({
+      scrollTop: $("#game_controls").offset().top
+  }, 500);
+}
+
+function speakDirections(){
+  var intro = "You are the captain of the THSS, navigating an asteroid belt";
+  var job = "Your task is to defend your ship from incoming asteroids";
+  var ctrl1 = "When you hear an asteroid to your right, press the right arrow to rotate in that direction";
+  var ctrl2 = "Rotate using the left arrow when you hear an asteroid to your left";
+  var ctrl3 = "Press the space bar to fire the ship's laser when you line up the asteroid straight ahead";
+  var ctrl4 = "After aiming directly at an asteroid, you will lock on and hear a tone, but this is not required to hit the target";
+  var hit = "Hitting an asteroid will cause it to explode, boom";
+  var end = ", Good luck captain";
+
+  say(intro);
+  say(job);
+  say(ctrl1);
+  say(ctrl2);
+  say(ctrl3);
+  say(ctrl4);
+  say(hit);
+  say(end);
 }
 
 function gatherSounds(){
