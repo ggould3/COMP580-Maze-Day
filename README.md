@@ -5,7 +5,7 @@ This project is a recreation of the classic arcade game Asteroids, redesigned to
 This game is hosted online at http://cs.unc.edu/~ggould/ and played entirely in the browser.
 
 # Built With
-Javascript
-jQuery
-Bootstrap
-Howler.js - https://howlerjs.com/
+Javascript  
+jQuery  
+Bootstrap  
+Howler.js - https://howlerjs.com/  
