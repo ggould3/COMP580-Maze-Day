@@ -1,0 +1,96 @@
+body{
+  background-color: #7BAFD4;
+  color: white;
+}
+
+#header{
+  background:white;
+  padding:20px;
+  margin-bottom:20px;
+  color:#7BAFD4;
+}
+
+h2{
+  color:#7BAFD4;
+  background:white;
+  display:inline;
+}
+
+#controls{
+  background:white;
+  color:#7BAFD4;
+  border: 1px solid #aaaaaa;
+}
+
+.popover-title{
+  color: #000000 !important;
+}
+
+.popover-content{
+    color: #000000 !important;
+}
+
+#wrapper{
+  width:880px;
+  margin-left: auto;
+  margin-right: auto;
+  background:white;
+  color:black;
+  padding-bottom:40px;
+  margin-bottom: 50px;
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 0px 41px -2px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 41px -2px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 41px -2px rgba(0,0,0,0.75);
+}
+
+#canvas{
+  background-color:black;
+  color:white;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#game_controls{
+  background: white;
+  color:black;
+  padding: 10px;
+  text-align:center;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+#reset{
+  display: none;
+}
+
+div.dropdown{
+  display:inline-block;
+}
+
+#directions{
+  margin-top: 20px;
+  margin-right:20px;
+}
+
+footer{
+  padding:20px;
+  background-color: #eeeeee;
+  color:black;
+  text-align:center;
+}
+
+#game_over_modal{
+  background:transparent;
+  color: black;
+}
+
+#options_modal{
+  background:transparent;
+  color: black;
+}
+
+#options_modal label, #options_modal input{
+  display: inline-block;
+}

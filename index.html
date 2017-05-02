@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Spatial Audio Games</title>
+
+  <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
+  <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+  <link rel="stylesheet" type="text/css" href="css/audio.css">
+
+  <script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
+  <script src="js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="js/howler.min.js" type="text/javascript"></script>
+  <script src="js/audio.js" type="text/javascript"></script>
+  <script src="js/graphics.js" type="text/javascript"></script>
+  <script src="js/model.js" type="text/javascript"></script>
+  <script src="js/animation.js" type="text/javascript"></script>
+  <script src="js/asteroids.js" type="text/javascript"></script>
+</head>
+<body>
+  <div id="header" class="text-center">
+    <h2>Spatial Audio Games</h2>
+    <button id="controls" class="btn btn-secondary pull-right" data-toggle="popover" data-html="true"
+          data-trigger="focus" title="Controls" data-container="body" data-placement="bottom"
+          data-content="Rotate right with <strong>RIGHT ARROW</strong> when you hear the asteroid to your right.<br /><br />
+          Rotate left with <strong>LEFT ARROW</strong> when you hear the asteroid to your left.<br /><br />
+          Fire with <strong>SPACE</strong> when you have the asteroid lined up.">Controls</button>
+  </div>
+  <div id="directions">
+    <button type="button" class="btn btn-success pull-right">Spoken<br />Directions</button>
+  </div>
+  <div id="wrapper">
+    <div id="game_controls">
+      <button id="start_asteroids" type="button" class="btn btn-success">Start Game</button>
+      <button id="reset" type="button" class="btn btn-danger">Reset</button>
+      <button id="toggle_view" type="button" class="btn btn-primary">View: Detailed</button>
+      <button id="toggle_options" type="button" class="btn btn-primary">Options</button>
+      <div class="dropdown">
+        <button id="diff_dropdown" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Difficulty
+          <span class="caret"></span></button>
+          <ul class="dropdown-menu" id="diff_options">
+            <li><a href="#" id="diff_easy" data-diff="1">Easy</a></li>
+            <li class="active"><a href="#" id="diff_normal" data-diff="2">Normal</a></li>
+            <li><a href="#" id="diff_hard" data-diff="3">Hard</a></li>
+          </ul>
+        </div>
+      </div>
+      <canvas id="canvas" width="800" height="500" tabindex="1"></canvas>
+    </div>
+
+    <footer> Please send all questions and concerns to gould.unc@gmail.com.</footer>
+
+    <div id="game_over_modal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Game Over</h4>
+          </div>
+          <div class="modal-body">
+            <p>Score: <span id="game_over_score"></span></p>
+            <p>Time: <span id="game_over_time"></span></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button id="restart_asteroids" type="button" class="btn btn-success" data-dismiss="modal">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="options_modal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Advanced Options</h4>
+          </div>
+          <div class="modal-body">
+            <p>Choose audio format files (must be .mp3) for each sound effect to replace their sound.</p>
+            <label for="asteroid">Asteroid</label>
+            <input type="file" name="asteroid" id="asteroid" accept=".mp3">
+            <br/>
+            <label for="laser">Laser</label>
+            <input type="file" name="laser" id="laser" accept=".mp3">
+            <br/>
+            <label for="explosion">Explosion</label>
+            <input type="file" name="explosion" id="explosion" accept=".mp3">
+            <br/>
+            <label for="lockon">Lock-On</label>
+            <input type="file" name="lockon" id="lockon" accept=".mp3">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Accept &amp; Close</button>
+            <button id="reset_files" type="button" class="btn btn-danger">Reset</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+  </html>
