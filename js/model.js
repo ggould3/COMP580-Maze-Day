@@ -158,7 +158,10 @@ function setListeners(){
 
   $('#restart_asteroids').on('click', function(e){
     $('#start_asteroids').prop('disabled', true);
+    $('#start_asteroids').hide();
+    $('#reset').show();
     $('#diff_dropdown').prop('disabled', true);
+    $('#toggle_options').prop('disabled', true);
     game.play();
   });
 
@@ -304,6 +307,9 @@ function SourceMap(){
 }
 
 function startAsteroids(){
+  if($('#game_over_modal').hasClass('in')){
+    $('#game_over_modal').modal('hide');
+  }
   $('#start_asteroids').prop('disabled', true);
   $('#start_asteroids').hide();
   $('#reset').show();
